@@ -134,10 +134,10 @@ class GoString():
         self.color = color
         self.stones = set(stones)
         self.liberties = set(liberties)
-    
+
     def remove_liberty(self, point):
         self.liberties.remove(point)
-    
+
     def add_liberty(self, point):
         self.liberties.add(point)
 
@@ -147,16 +147,17 @@ class GoString():
         return GoString(
             self.color,
             combined_stones,
-            (self.liberties | go_string.liberties) - combined_stones
-        )
+            (self.liberties | go_string.liberties) - combined_stones)
 
     @property
     def num_liberties(self):
         return len(self.liberties)
 
     def __eq__(self, other):
-        return isinstance(other, GoString) and self.color == other.color and self.stones == other.stones and self.liberties == other.liberties
-
+        return isinstance(other, GoString) and \
+            self.color == other.color and \
+            self.stones == other.stones and \
+            self.liberties == other.liberties
 
 class Move():
     def __init__(self, point=None, is_pass=False, is_resign=False):
