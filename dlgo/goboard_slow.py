@@ -50,7 +50,7 @@ class Board():
             other_color_string.remove_liberty(point)
         for other_color_string in adjacent_opposite_color:
             if other_color_string.num_liberties == 0:
-                self._remove_string(other_color_string)
+                self.remove_string(other_color_string)
 
     def remove_string(self, string):
         for point in string.stones:
