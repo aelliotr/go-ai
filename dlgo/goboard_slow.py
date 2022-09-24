@@ -20,7 +20,7 @@ class Board():
         return string
 
     def is_on_grid(self, point):
-        return 1 <= point.row <= self.num_rows and 1 <= point.col <= self.num.cols
+        return 1 <= point.row <= self.num_rows and 1 <= point.col <= self.num_cols
 
     def place_stone(self, player, point):
         assert self.is_on_grid(point)
@@ -150,12 +150,12 @@ class GoString():
             (self.liberties | go_string.liberties) - combined_stones
         )
 
-@property
-def num_liberties(self):
-    return len(self.liberties)
+    @property
+    def num_liberties(self):
+        return len(self.liberties)
 
-def __eq__(self, other):
-    return isinstance(other, GoString) and self.color == other.color and self.stones == other.stones and self.liberties == other.liberties
+    def __eq__(self, other):
+        return isinstance(other, GoString) and self.color == other.color and self.stones == other.stones and self.liberties == other.liberties
 
 
 class Move():
